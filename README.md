@@ -30,7 +30,7 @@ We asume that you have node and mongodb already installed and running.
 
 5.- Getting news: Using your favorite browser, go to the next URL: `http://<localhost>:<3000>/getApi`.
 
-6.- Enjoy !
+6.- Enjoy `http://<localhost>:<3000>/news` !
 
 ## Features
 
