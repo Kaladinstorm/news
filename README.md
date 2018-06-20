@@ -5,9 +5,13 @@ Hello!, yoy can see every story or news that you want to check!!
 ## Quickstart
 
 Clone repo: `git clone https://github.com/Kaladinstorm/news.git`.
+
 Install with npm: `npm install`
+
 Configure DB:
+
     You have to change the next file with your database configs:
+    
         `./config/config.json`
 
             `{
