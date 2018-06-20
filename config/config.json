@@ -1,5 +1,7 @@
 {
     "hostname": "localhost",
     "port": "27017",
-    "dbName": "hitsDB"
+    "dbName": "hitsDB",
+    "username": "",
+    "password": ""
 }

@@ -12,7 +12,7 @@ const prettydate = require("pretty-date");
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  res.render('index', { title: 'HN Feed' });
+  res.redirect('/news');
 
 });
 
@@ -23,6 +23,7 @@ router.get('/getApi', function(req, res) {
   hitsController.getApi(req, res);
 });
 
+// Show news in homepage
 router.get('/news', function(req, res) {
   hitsController.listHits().then(function(data) {
     
@@ -42,14 +43,13 @@ router.get('/news', function(req, res) {
 
     });
 
-    console.log(data[2].created_at);
-
     res.render('index', { data });
   }).catch(function(error) {
     res.render('error', { error: error});
   });
 });
 
+//Mark as deleted the post
 router.post('/news', function(req, res) {
   hitsController.markAsDeleted(req).then(function() {
     res.redirect('/news');

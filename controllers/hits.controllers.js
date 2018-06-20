@@ -2,7 +2,7 @@ const Hits = require('../models/hits.models');
 var request = require('request');
 
 
-
+/** Validate if the post already exists */
 var validateHit = function(objectID) {
     return new Promise(function(resolve, reject) { 
         Hits.findOne( { objectID: objectID }, function(err, data) {
@@ -20,6 +20,7 @@ var validateHit = function(objectID) {
     })
 }
 
+/** Add to the db the new post */
 var addHits = function(hits) {
 
     validateHit(hits.objectID).then(function() {
@@ -49,6 +50,7 @@ var addHits = function(hits) {
     })   
 }
 
+/** GET the entire data from the API */
 module.exports.getApi = function(req, res) {
     request
   .get('https://hn.algolia.com/api/v1/search_by_date?query=nodejs', function(error, response, body) {
@@ -81,7 +83,7 @@ module.exports.getApi = function(req, res) {
   });
 }
 
-
+/** List the posts */
 module.exports.listHits = function() {
 
     return new Promise(function(resolve, reject){
@@ -99,6 +101,7 @@ module.exports.listHits = function() {
         
 }
 
+/** Marks as deleted the selected post */
 module.exports.markAsDeleted = function(req) {
 
     return new Promise(function(resolve, reject) {
