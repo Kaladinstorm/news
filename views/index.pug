@@ -1,0 +1,101 @@
+extends layout.pug
+
+block content  
+	table.table.table-hover
+		tbody
+			each hits in data
+				form(method='post' action='news')
+					input(type="hidden" name="objectID" value=hits.objectID)
+					if hits.story_url === null && hits.url === null
+						tr
+							if hits.story_title !== null || hits.title !== null
+								if hits.story_title === null
+									td
+										span.title= hits.title
+										span.author
+											|  -
+											= hits.author
+											| -
+								else if hits.title === null
+									td
+										span.title= hits.story_title
+										span.author
+											|  -
+											= hits.author
+											| -
+								td
+									span.title= hits.created_at
+								td
+									span.glyphicon1
+										button.btn(type="submit")
+											i.fa.fa-trash
+					else if hits.url === null
+						tr
+							if hits.story_title !== null || hits.title !== null
+								if hits.story_title === null
+									td(onclick="window.open('"+ hits.story_url +"', '_blank');")
+										span.title= hits.title	
+										span.author
+											|  -
+											= hits.author
+											| -
+								else if hits.title === null
+									td(onclick="window.open('"+ hits.story_url +"', '_blank');")
+										span.title= hits.story_title
+										span.author
+											|  -
+											= hits.author
+											| -
+								td
+									span.title= hits.created_at
+								td
+									span.glyphicon1
+										button.btn(type="submit")
+											i.fa.fa-trash
+					else if hits.story_url === null
+						tr
+							if hits.story_title !== null || hits.title !== null
+								if hits.story_title === null
+									td(onclick="window.open('"+ hits.url +"', '_blank');")
+										span.title= hits.title	
+										span.author
+											|  -
+											= hits.author
+											| -
+								else if hits.title === null
+									td(onclick="window.open('"+ hits.url +"', '_blank');")
+										span.title= hits.story_title
+										span.author
+											|  -
+											= hits.author
+											| -
+								td
+									span.title= hits.created_at
+								td
+									span.glyphicon1
+										button.btn(type="submit")
+											i.fa.fa-trash
+					else 
+						tr
+							if hits.story_title !== null || hits.title !== null
+								if hits.story_title === null
+									td(onclick="window.open('"+ hits.url +"', '_blank');")
+										span.title= hits.title
+										span.author
+											|  -
+											= hits.author
+											| -	
+								else if hits.title === null
+									td(onclick="window.open('"+ hits.url +"', '_blank');")
+										span.title= hits.story_title
+										span.author
+											|  -
+											= hits.author
+											| -
+								td
+									span.title= hits.created_at
+								td
+									span.glyphicon1
+										button.btn(type="submit")
+											i.fa.fa-trash
+					

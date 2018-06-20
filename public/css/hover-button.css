@@ -1,0 +1,16 @@
+table.table.table-hover .glyphicon1 {
+    visibility: hidden;
+  }
+  table.table.table-hover tr:hover .glyphicon1 {
+    visibility: visible;
+  }
+
+td .author {
+  font-family: 'Courier New', Courier, monospace;
+  color: #999;
+}
+
+td .title {
+  color: #333;
+  font-size: 13pt;
+}
